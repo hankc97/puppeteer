@@ -1,3 +1,4 @@
 node_modules
 ./screenshot/node_modules
 ./webscraper/node_modules
+./webtester/node_modules

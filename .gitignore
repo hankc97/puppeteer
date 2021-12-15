@@ -1,6 +1,6 @@
 node_modules
 ./screenshot/node_modules
 ./webscraper/node_modules
-./webscraper/secrets
 ./webtester/node_modules
-./secrets
+
+./webscraper/secrets/

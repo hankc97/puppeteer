@@ -12,5 +12,13 @@ describe("homepage", () => {
 
         await expect(msg).toMatch("Investing for\nEveryone")
     })
+
+    it (`should display fractal shares image on right`, async () => {
+        await page.waitForSelector(".static-image-home-page")
+        const href = await page.$(".static-image-home-page")
+        const attrValue = await href.evaluate(node => node.getAttribute("src"))
+
+        await expect(attrValue).toMatch("https://cdn.robinhood.com/assets/robinhood/brand/_next/static/images/1x__284c8d0c799d3c9649ca021c00228275.png")
+    })
 })
 

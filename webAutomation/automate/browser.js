@@ -9,7 +9,8 @@ export const newBrowser = async () => {
         browser = await puppeteer.launch({
             headless: false,
             defaultViewport: null,
-            slow: 15,
+            slow: 30,
+            executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
         })
         
         browser.on("disconnected", async () => {
@@ -20,18 +21,19 @@ export const newBrowser = async () => {
             }
         })
     } catch(err) {
-        console.error("Could not create browser instance\terror\t", err)
+        console.error("Could not create browser instance")
+        return [null, err]
     }
-    return browser
+    return [browser, null]
 }
 
-export const stealthBrowser = async () => {
+export const newStealthBrowser = async () => {
     puppeteerExtra.use(StealthPlugin());
-    const browser = puppeteerExtra.launch({
+    const browser = await puppeteerExtra.launch({
         headless: false,
-        defaultViewport: null
+        defaultViewport: null,
+        slow: 100,
+        executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
     })
-
-    return browser;
+    return [browser];
 }
-

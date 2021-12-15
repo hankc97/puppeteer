@@ -6,7 +6,7 @@ const Screenshot = async () => {
     try {
         // new chromium browser
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
         });
 
         // new page/tab
